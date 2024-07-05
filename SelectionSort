@@ -1,0 +1,48 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+       int [] nums = new int[10];
+        Random rand=new Random();
+        
+        for(int i=0;i<10;i++){
+           nums[i]=rand.nextInt(100);
+        }
+        
+        System.out.println("Before sorting");
+        //before sorting
+        for(int num:nums){
+            System.out.println(num);
+        }
+        
+        selectionSort(nums);
+        
+        System.out.println("After sorting");
+        //after sorting
+            for(int num:nums){
+            System.out.println(num);
+        }
+        
+    }
+    private static void selectionSort(int[] sety){
+        int size=sety.length;
+        for(int i=0;i<size-1;i++){
+            int min_num=sety[i];
+            int indexOfMin=i;
+            for(int j=i+1;j<size;j++){
+                if(min_num>sety[j]){
+                    min_num=sety[j];
+                    indexOfMin=j;
+                }
+            }
+            swap(sety,i,indexOfMin);
+        }
+    }
+   private static void swap(int[] sety,int a,int b){
+        int temp=sety[a];
+       sety[a]=sety[b];
+        sety[b]=temp;
+    }
+}
